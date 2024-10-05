@@ -10,7 +10,7 @@ void ordenarModulos(List<Module> moduleStudent) {
 
 void main(List<String> arguments) {
   // Original student list
-  print('Original student list:');
+  print('Lista original:');
   randomNumbers(moduleMap);
 
   // Iterate through the student list to print their data
@@ -21,7 +21,7 @@ void main(List<String> arguments) {
   print('..................................');
 
   // List of students with sorted modules
-  print('Sorted student list:');
+  print('Lista ordenada:');
   for (var student in studentsList) {
     ordenarModulos(student.module);
   }
