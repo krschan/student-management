@@ -53,10 +53,10 @@ void validarNumerosDeModulos(List<Module> moduleStudent) {
 
   // Check if the course is complete
   if (moduleCounter > 4) {
-    print("Course complete.");
+    print("Curso completado.");
     return; // Exit the method if the course is complete
   } else {
-    print("Adding more modules...");
+    print("Añadiendo más modulos...");
   }
 
   // Convert the map to a list to add modules if the course is not complete.

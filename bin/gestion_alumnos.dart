@@ -51,8 +51,8 @@ void main(List<String> arguments) {
   Module randomModule = moduleMap.values.elementAt(rng.nextInt(moduleMap.length));
 
   if (buscarModulo(randomStudent, randomModule.name)) {
-    print("Module ${randomModule.name} found for ${randomStudent.name}");
+    print("Module ${randomModule.name} de ${randomStudent.name} encontrado");
   } else {
-    print("Module ${randomModule.name} not found for ${randomStudent.name}");
+    print("Module ${randomModule.name} de ${randomStudent.name} no encontrado.");
   }
 }
