@@ -1,38 +1,58 @@
-import 'dart:collection';
-
+import 'dart:math';
 import 'package:gestion_alumnos/globals.dart';
 import 'package:gestion_alumnos/module.dart';
+import 'package:gestion_alumnos/student.dart';
 
-String ordenarModulos(Map<int, Module> modules) {
-  // Crear un SplayTreeMap para ordenar por clave
-  SplayTreeMap<int, Module> moduleMap = SplayTreeMap<int, Module>();
-
-  // Agregar los módulos al SplayTreeMap
-  modules.forEach((key, value) {
-    moduleMap[key] = value;
-  });
-
-  // Sorted modules
-  for (int key in moduleMap.keys) {
-    ("$key : ${moduleMap[key]}");
-  }
-
-  return '$moduleMap';
+// Sort student modules
+void ordenarModulos(List<Module> moduleStudent) {
+  moduleStudent.sort((a, b) => a.name.compareTo(b.name));
 }
 
 void main(List<String> arguments) {
-  // Students list
-  print('Lista original de alumnos:');
+  // Original student list
+  print('Original student list:');
+  randomNumbers(moduleMap);
 
-  randomNumbers(infoModule);
-
-  // Recorrer la lista de estudiantes para imprimir sus datos
+  // Iterate through the student list to print their data
   for (var student in studentsList) {
     print(student.toString());
   }
 
-  // Lista de estudiantes con módulos ordenados
-  print('Lista ordenada de alumnos');
+  print('..................................');
 
-  validarNumerosDeModulos(infoModule);
+  // List of students with sorted modules
+  print('Sorted student list:');
+  for (var student in studentsList) {
+    ordenarModulos(student.module);
+  }
+
+  for (var student in studentsList) {
+    print(student.toString());
+  }
+
+  print('..................................');
+
+  // Iterate through the student list with their modules to validate if > 4 modules.
+  for (var student in studentsList) {
+    print('${student.name}:');
+    validarNumerosDeModulos(student.module);
+  }
+
+  for (var student in studentsList) {
+    print(student.toString());
+  }
+
+  print('..................................');
+
+  // Generate random numbers to randomly select the student and the module.
+  var rng = Random();
+
+  Student randomStudent = studentsList[rng.nextInt(studentsList.length)];
+  Module randomModule = moduleMap.values.elementAt(rng.nextInt(moduleMap.length));
+
+  if (buscarModulo(randomStudent, randomModule.name)) {
+    print("Module ${randomModule.name} found for ${randomStudent.name}");
+  } else {
+    print("Module ${randomModule.name} not found for ${randomStudent.name}");
+  }
 }
